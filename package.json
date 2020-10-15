@@ -1,0 +1,19 @@
+{
+  "name": "use-immutable",
+  "version": "0.0.0",
+  "description": "A hook for creating the immutable state with mutation on React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unadlib/use-immutable.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unadlib/use-immutable/issues"
+  },
+  "homepage": "https://github.com/unadlib/use-immutable#readme"
+}
