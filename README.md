@@ -1,2 +1,2 @@
 # use-immutable
-A hook for creating the next immutable state on React
+A hook for creating the immutable state with mutation on React
