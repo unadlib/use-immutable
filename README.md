@@ -13,7 +13,7 @@ A hook for creating the immutable state with mutation on React.
 yarn add use-immutable
 ```
 
-- Example
+- Example: [Demo](https://stackblitz.com/edit/use-immutable)
 
 ```js
 import React from 'react';
