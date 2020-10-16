@@ -1,6 +1,9 @@
 # use-immutable
 
-A hook for creating the immutable state with mutation on React
+![Node CI](https://github.com/unadlib/use-immutable/workflows/Node%20CI/badge.svg)
+[![npm version](https://badge.fury.io/js/use-immutable.svg)](http://badge.fury.io/js/use-immutable)
+
+A hook for creating the immutable state with mutation on React.
 
 ## Usage
 
