@@ -13,22 +13,33 @@ yarn add use-immutable
 - Example
 
 ```js
-import React from "react";
-import { useImmutable } from "use-immutable";
+import React from 'react';
+import { useImmutable } from 'use-immutable';
 
 const TodoList = () => {
-  const text = useImmutable('');
-  const list = useImmutable([]);
-  const updateText = e => text.set(() => test.state = e.target.value);
-  const addTodo = () => list.set(() => list.add(test.state));
+  const todo = useImmutable({
+    text: '',
+    list: [],
+  });
+  const updateText = (e) =>
+    todo.set(() => {
+      todo.state.text = e.target.value;
+    });
+  const addTodo = () =>
+    todo.set(() => {
+      todo.state.list.push(todo.state.text);
+      todo.state.text = '';
+    });
   return (
     <div>
-      <input value={text.state} onChange={updateText} />
-      <button onClick={addTodo}>Add<button/>
+      <input value={todo.state.text} onChange={updateText} />
+      <button onClick={addTodo}>Add</button>
       <ul>
-        {list.state.map((item, index) => <li key={key}>{item}<li/>)}
-      <ul/>
+        {todo.state.list.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 ```

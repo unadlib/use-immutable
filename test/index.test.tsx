@@ -18,25 +18,25 @@ afterEach(() => {
 
 test('base', () => {
   const TodoList = () => {
-    const text = useImmutable('');
-    const list = useImmutable<string[]>([]);
-    const updateText = (e: any) => {
-      text.set(() => {
-        text.state = e.target.value;
+    const todo = useImmutable({
+      text: '',
+      list: [] as string[],
+    });
+    const updateText = (e: any) =>
+      todo.set(() => {
+        todo.state.text = e.target.value;
       });
-    };
-    const addTodo = () => {
-      text.set(() => {
-        text.state = '';
+    const addTodo = () =>
+      todo.set(() => {
+        todo.state.list.push(todo.state.text);
+        todo.state.text = '';
       });
-      list.set(() => list.state.push(text.state));
-    };
     return (
       <div>
-        <input value={text.state} onChange={updateText} />
+        <input value={todo.state.text} onChange={updateText} />
         <button onClick={addTodo}>Add</button>
         <ul>
-          {list.state.map((item, index) => (
+          {todo.state.list.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
