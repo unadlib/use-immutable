@@ -39,7 +39,6 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "immer": "^5.0.0",
     "jest": "^26.4.0",
     "prettier": "^2.0.5",
     "react": "^16.8.0",
@@ -55,8 +54,10 @@
     "yargs": "^15.1.0"
   },
   "peerDependencies": {
-    "immer": ">=2.0.0",
     "react": "^16.8.0"
+  },
+  "dependencies": {
+    "immer": "^7.0.9"
   },
   "config": {
     "commitizen": {
