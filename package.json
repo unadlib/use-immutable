@@ -1,6 +1,6 @@
 {
   "name": "use-immutable",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A hook for creating the immutable state with mutation on React",
   "main": "dist/use-immutable.js",
   "umd:main": "dist/use-immutable.umd.js",
@@ -28,6 +28,12 @@
     "url": "https://github.com/unadlib/use-immutable/issues"
   },
   "homepage": "https://github.com/unadlib/use-immutable#readme",
+  "keywords": [
+    "react",
+    "hooks",
+    "immer",
+    "immutable"
+  ],
   "devDependencies": {
     "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
