@@ -1,18 +1,23 @@
 {
   "name": "use-immutable",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A hook for creating the immutable state with mutation on React",
-  "main": "lib/index.js",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/use-immutable.js",
+  "umd:main": "dist/use-immutable.umd.js",
+  "module": "dist/use-immutable.module.js",
+  "jsnext:main": "dist/use-immutable.module.js",
+  "react-native": "dist/use-immutable.module.js",
+  "typings": "dist/index.d.ts",
+  "source": "src/index.ts",
   "scripts": {
     "test": "jest",
     "clean": "rimraf dist",
-    "build": "yarn clean && tsc && yarn build:prod && yarn build:dev",
-    "build:prod": "NODE_ENV=production rollup --config",
-    "build:dev": "NODE_ENV=development rollup --config",
+    "build": "microbundle",
     "commit": "yarn git-cz"
   },
+  "files": [
+    "*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unadlib/use-immutable.git"
@@ -24,9 +29,6 @@
   },
   "homepage": "https://github.com/unadlib/use-immutable#readme",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-replace": "^2.3.3",
     "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
     "@types/react": "^16.8.13",
@@ -40,18 +42,13 @@
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^26.4.0",
+    "microbundle": "^0.12.4",
     "prettier": "^2.0.5",
     "react": "^16.8.0",
     "react-dom": "^16.14.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.26.5",
-    "rollup-plugin-terser": "^7.0.0",
     "ts-jest": "^26.2.0",
-    "ts-node": "^8.10.2",
-    "typedoc": "^0.17.6",
-    "typedoc-plugin-markdown": "^2.2.17",
-    "typescript": "^4.0.2",
-    "yargs": "^15.1.0"
+    "typescript": "^4.0.2"
   },
   "peerDependencies": {
     "react": "^16.8.0"
@@ -67,7 +64,10 @@
   "jest": {
     "preset": "ts-jest",
     "globals": {
-      "__DEV__": true
+      "__DEV__": true,
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
     }
   }
 }
