@@ -1,7 +1,7 @@
 {
   "name": "use-immutable",
-  "version": "0.2.1",
-  "description": "A hook for creating the immutable state with mutation on React",
+  "version": "0.2.2",
+  "description": "A hook for creating the immutable state with mutations on React",
   "main": "dist/use-immutable.js",
   "umd:main": "dist/use-immutable.umd.js",
   "module": "dist/use-immutable.module.js",
