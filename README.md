@@ -3,7 +3,13 @@
 ![Node CI](https://github.com/unadlib/use-immutable/workflows/Node%20CI/badge.svg)
 [![npm version](https://badge.fury.io/js/use-immutable.svg)](http://badge.fury.io/js/use-immutable)
 
-A hook for creating the immutable state with mutations on React, it's based on [immer](https://github.com/immerjs/immer).
+A hook for creating the immutable state with mutations on React, it's based on [immer](https://github.com/immerjs/immer). 
+
+## Features
+
+- update state by mutating
+- snapshot
+- time traveling
 
 ## Usage
 
@@ -46,3 +52,33 @@ const TodoList = () => {
   );
 };
 ```
+
+## APIs
+
+### instance.state
+
+Get the current component status.
+
+### instance.snapshot()
+
+Take a snapshot of the current state
+
+### instance.pop()
+
+Update the state from the snapshot
+
+### instance.clear()
+
+Clear the snapshot
+
+### instance.length
+
+Get the snapshot length
+
+### instance.index
+
+Index of the current state in the snapshot
+
+### instance.set()
+
+Set a new state value
