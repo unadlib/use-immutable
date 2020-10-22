@@ -36,6 +36,7 @@ test('base', () => {
     return (
       <div>
         <p>{todo.length}</p>
+        <span>{todo.index}</span>
         <input value={todo.state.text} onChange={updateText} />
         <button onClick={addTodo}>Add</button>
         <ul>
@@ -55,15 +56,18 @@ test('base', () => {
     } as any);
   });
   expect(container.querySelector('p')!.textContent).toBe('0');
+  expect(container.querySelector('span')!.textContent).toBe('-1');
   expect(container.querySelector('input')?.value).toBe('test');
   act(() => {
     Simulate.click(container.querySelector('button')!, { bubbles: true });
   });
   expect(container.querySelector('p')!.textContent).toBe('1');
+  expect(container.querySelector('span')!.textContent).toBe('-1');
   expect(container.querySelector('input')!.value).toBe('');
   expect(container.querySelector('ul')!.textContent).toBe('test');
   act(() => {
     Simulate.click(container.querySelector('#pop')!, { bubbles: true });
   });
   expect(container.querySelector('ul')!.textContent).toBe('');
+  expect(container.querySelector('span')!.textContent).toBe('0');
 });
