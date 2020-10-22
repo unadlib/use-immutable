@@ -26,13 +26,16 @@ test('base', () => {
       todo.set(() => {
         todo.state.text = e.target.value;
       });
-    const addTodo = () =>
+    const addTodo = () => {
+      todo.snapshot();
       todo.set(() => {
         todo.state.list.push(todo.state.text);
         todo.state.text = '';
       });
+    };
     return (
       <div>
+        <p>{todo.length}</p>
         <input value={todo.state.text} onChange={updateText} />
         <button onClick={addTodo}>Add</button>
         <ul>
@@ -40,6 +43,7 @@ test('base', () => {
             <li key={index}>{item}</li>
           ))}
         </ul>
+        <button id="pop" onClick={() => todo.pop()}>Add</button>
       </div>
     );
   };
@@ -50,10 +54,16 @@ test('base', () => {
       target: { value: 'test' },
     } as any);
   });
+  expect(container.querySelector('p')!.textContent).toBe('0');
   expect(container.querySelector('input')?.value).toBe('test');
   act(() => {
     Simulate.click(container.querySelector('button')!, { bubbles: true });
   });
+  expect(container.querySelector('p')!.textContent).toBe('1');
   expect(container.querySelector('input')!.value).toBe('');
   expect(container.querySelector('ul')!.textContent).toBe('test');
+  act(() => {
+    Simulate.click(container.querySelector('#pop')!, { bubbles: true });
+  });
+  expect(container.querySelector('ul')!.textContent).toBe('');
 });

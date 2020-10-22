@@ -14,8 +14,8 @@ export const useImmutable = <S = any>(
     state: Draft<S>;
   };
   const [state, setState] = useState(initialState);
-  const store = [];
-  const keys: (number | string)[] = [];
+  const [store, setStore] = useState<any[]>([]);
+  const [keys, setKeys] = useState<(number | string)[]>([]);
   return {
     get state() {
       return isUpdating ? draft.state : state;
@@ -24,8 +24,8 @@ export const useImmutable = <S = any>(
       draft.state = value as Draft<S>;
     },
     snapshot(index?: number | string) {
-      store.push(state);
-      keys.push(index ?? store.length);
+      setStore([...store, state]);
+      setKeys([...keys, index ?? store.length]);
     },
     pop(index?: number | string) {
       setState(
@@ -37,7 +37,8 @@ export const useImmutable = <S = any>(
       );
     },
     clear() {
-      store.length = 0;
+      setStore([]);
+      setKeys([]);
     },
     get length() {
       return store.length;
@@ -53,8 +54,8 @@ export const useImmutable = <S = any>(
       });
       isUpdating = false;
       if (timeTravel) {
-        store.push(next.state);
-        keys.push(store.length);
+        setStore([...store, next.state]);
+        setKeys([...keys, store.length]);
       }
       setState(next.state);
     },
