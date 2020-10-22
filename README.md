@@ -7,9 +7,9 @@ A hook for creating the immutable state with mutations on React, it's based on [
 
 ## Features
 
-- update state by mutating
-- snapshot
-- time traveling
+- Update state by mutating
+- Snapshot
+- Time traveling
 
 ## Usage
 
